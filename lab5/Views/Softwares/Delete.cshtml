@@ -1,0 +1,47 @@
+﻿@model lab5.Models.Software
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<!-- delete title for the delete page-->
+<h1>Delete</h1>
+<!-- asks user if their to confirm their decision again-->
+<h3>Are you sure you want to delete this?</h3>
+<!-- data for the model, make,year, price of the software to be deleted-->
+<div>
+    <h4>Software</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.make)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.make)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.model)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.model)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.year)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.year)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.price)
+        </dd>
+    </dl>
+    <!-- delete button for the software, when pressed deletes the data -->
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="softwareID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+        <!-- returns the user back to the list -->
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

@@ -1,0 +1,51 @@
+﻿@model lab5.Models.Software
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<!-- title of the page for the editing of the data-->
+<h1>Edit</h1>
+
+<h4>Software</h4>
+<hr />
+<!-- allows user to view and select and modify the their data they previously printed -->
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="softwareID" />
+            <div class="form-group">
+                <label asp-for="make" class="control-label"></label>
+                <input asp-for="make" class="form-control" />
+                <span asp-validation-for="make" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="model" class="control-label"></label>
+                <input asp-for="model" class="form-control" />
+                <span asp-validation-for="model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="year" class="control-label"></label>
+                <input asp-for="year" class="form-control" />
+                <span asp-validation-for="year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label"></label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <!-- submit button confirms the edits the user made-->
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+<!-- script forthe editing to work properly -->
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

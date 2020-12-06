@@ -1,0 +1,56 @@
+﻿@model IEnumerable<lab5.Models.Software>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<!-- title for the software check out page-->
+<h1>Software Check out</h1>
+<!-- allows user to input new data with the create new action-->
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<!-- user can input data of the make,model,year,price of the software-->
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                <!-- gives option to editing, viewing details, and deleting the input concerning the software-->
+                <a asp-action="Edit" asp-route-id="@item.softwareID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.softwareID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.softwareID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
